@@ -1,4 +1,8 @@
 #!/bin/bash 
+#reflector.sh is a script to help you update mirrorlist
+#written by:Mohammed Alhoussainy
+#
+#upgrade your system
 arch_upgrade()
 {
 sudo pacman -Syu
