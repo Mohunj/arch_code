@@ -15,7 +15,6 @@ then
 a="جار الترقية"
 b="وجد الملف "
 c="تم حذف الملف"
-echo $a
 elif [ $loc == 'LANG=en_US.UTF-8' ]
 then
 a="Upgrading start"
