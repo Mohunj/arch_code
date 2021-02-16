@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/usr/bin/env bash
 #reflector.sh is a script to help you update mirrorlist
 #written by:Mohammed Alhoussainy
 #
@@ -10,12 +10,12 @@ sudo pacman -Syu
 locale_function()
 {
 loc=$(locale |grep LANG)
-if [ $loc == 'LANG=ar_IQ.UTF-8' ]
+if [ "$loc" == 'LANG=ar_IQ.UTF-8' ]
 then
 a="جار الترقية"
 b="وجد الملف "
 c="تم حذف الملف"
-elif [ $loc == 'LANG=en_US.UTF-8' ]
+elif [ "$loc" == 'LANG=en_US.UTF-8' ]
 then
 a="Upgrading start"
 b="Found"
