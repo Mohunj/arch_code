@@ -32,8 +32,11 @@ locale_function
 #If you need rsync delete "--protocol https --protocol http"
 #CHEERS
  sudo reflector --verbose --latest $1 --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
-  
-  FILE=/var/lib/pacman/db.lck
+ if [ $? -eq 0 ];then
+  echo "  "
+  echo "mirrors saved"
+  echo "  "
+    FILE=/var/lib/pacman/db.lck
 if test -f "$FILE"; then
     echo -e "\e[40;38;5;82m $b \e[30;48;5;82m $FILE \e[0m"
     #echo "FOUND $FILE "
@@ -45,4 +48,12 @@ if test -f "$FILE"; then
     #echo "بدء الترقية......."
     arch_upgrade
 fi
+  else
+   echo "  "
+   echo "failed to save"
+   echo "  "
+   echo "No UPGREADE NEEDED"
+   fi
+  
+
 
