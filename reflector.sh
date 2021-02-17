@@ -15,15 +15,21 @@ then
 a="جار الترقية"
 b="وجد الملف "
 c="تم حذف الملف"
+d="تم حفظ المرايا بنجاح "
+d1="للاسف فشل حفظ المرايا وهناك خطأ ما. "
 elif [ "$loc" == 'LANG=en_US.UTF-8' ]
 then
 a="Upgrading start"
 b="Found"
 c="File deleted"
+d="Mirrors saved successfully"
+d1="Something wrong , mirrors not saved"
 else
 a="Upgrading Start"
 b="found"
 c="file deleted"
+d="Mirrors saved successfully"
+d1="Something wrong , mirrors not saved"
 fi
 }
 locale_function
@@ -34,7 +40,7 @@ locale_function
  sudo reflector --verbose --latest $1 --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
  if [ $? -eq 0 ];then
   echo "  "
-  echo "mirrors saved"
+  echo $d
   echo "  "
     FILE=/var/lib/pacman/db.lck
 if test -f "$FILE"; then
@@ -50,7 +56,7 @@ if test -f "$FILE"; then
 fi
   else
    echo "  "
-   echo "failed to save"
+   echo $d1
    echo "  "
    echo "No UPGREADE NEEDED"
    fi
