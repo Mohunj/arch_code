@@ -27,9 +27,13 @@ c="file deleted"
 fi
 }
 locale_function
- sudo reflector --verbose --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
- 
- FILE=/var/lib/pacman/db.lck
+#The new command enable the user choosing the nomber of mirrors
+#Also useing HTTPS & HTTP only
+#If you need rsync delete "--protocol https --protocol http"
+#CHEERS
+ sudo reflector --verbose --latest $1 --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
+  
+  FILE=/var/lib/pacman/db.lck
 if test -f "$FILE"; then
     echo -e "\e[40;38;5;82m $b \e[30;48;5;82m $FILE \e[0m"
     #echo "FOUND $FILE "
