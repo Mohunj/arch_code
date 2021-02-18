@@ -4,7 +4,7 @@
 
  upgrade your system
  '
-export m1 m2 m3
+export m1 m2 m3 m4
 arch_upgrade()
 {
 sudo pacman -Syu
@@ -22,6 +22,7 @@ d1="للاسف فشل حفظ المرايا وهناك خطأ ما. "
 m1="يجب ادخال عدد المرايا التي تريدها"
 m2="استعمال السكربت:sh reflector.sh n  حيث n عدد المرايا"
 m3="حاول مرة اخرى"
+m4=" لا حاجة للترقية"
 else
 a="Upgrading Start"
 b="found"
@@ -31,6 +32,7 @@ d1="Something wrong , mirrors not saved"
 m1="You should enter the nomber of mirros"
 m2="Script usage : sh reflector.sh n , n= number of mirrors"
 m3="try again later"
+m4="No UPGREADE NEEDED"
 fi
 }
 locale_function
@@ -69,7 +71,7 @@ fi
    echo "  "
    echo "$d1"
    echo "  "
-   echo "No UPGREADE NEEDED"
+   echo $m4
    fi
  
 
