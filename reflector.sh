@@ -9,6 +9,7 @@ arch_upgrade()
 {
 sudo pacman -Syu
 }
+#let's add some localization
 locale_function()
 {
 loc=$(locale |grep LANG)
@@ -35,13 +36,17 @@ m3="try again later"
 m4="No UPGREADE NEEDED"
 fi
 }
+#excute the localization function
 locale_function
 :'The new command enable the user choosing the nomber of mirrors
  Also useing HTTPS & HTTP only
  If you need rsync delete "--protocol https --protocol http"
  CHEERS
 '
-if [ -z "$1" ] ; then
+#if the number of mirrors is empty
+if [ -z "$1" ] 
+ then
+#print notification and exit
 echo "$m1"
 sleep 1
 echo "$m2"
@@ -56,11 +61,13 @@ fi
   echo "$d"
   echo "  "
     FILE=/var/lib/pacman/db.lck
+    #check if file exist
 if test -f "$FILE"; then
     echo -e "\e[40;38;5;82m $b \e[30;48;5;82m $FILE \e[0m"
     # File will be removed
     sudo rm "$FILE"
     echo "$FILE $c"
+    #upgrade the system
     arch_upgrade
     else
     echo -e "\033[31m \e[5m $a \e[0m"
@@ -68,6 +75,7 @@ if test -f "$FILE"; then
     arch_upgrade
 fi
   else
+  #an error accourd
    echo "  "
    echo "$d1"
    echo "  "
