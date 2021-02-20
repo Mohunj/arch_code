@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #About me and the script
-: 'reflector.sh is a script to help you update mirrorlist
+<<ABOUTME
+ reflector.sh is a script to help you update mirrorlist
  written by:Mohammed Alhoussainy
-
  upgrade your system
- '
+ABOUTME
 export m1 m2 m3 m4
 arch_upgrade()
 {
@@ -34,11 +34,12 @@ fi
 #excute the localization function
 locale_function
 #The new command
-: 'The new command enable the user choosing the nomber of mirrors
+<<HINT1
+ The new command enable the user choosing the nomber of mirrors
  Also useing HTTPS & HTTP only
  If you need rsync delete "--protocol https --protocol http"
  CHEERS
-'
+HINT1
 #if the number of mirrors is empty
 mrr=${1:-40}
 sudo reflector --verbose --latest "$mrr" --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
