@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#About me and the script
 : 'reflector.sh is a script to help you update mirrorlist
  written by:Mohammed Alhoussainy
 
@@ -20,9 +21,6 @@ b="وجد الملف "
 c="تم حذف الملف"
 d="تم حفظ المرايا بنجاح "
 d1="للاسف فشل حفظ المرايا وهناك خطأ ما. "
-m1="يجب ادخال عدد المرايا التي تريدها"
-m2="استعمال السكربت:sh reflector.sh n  حيث n عدد المرايا"
-m3="حاول مرة اخرى"
 m4=" لا حاجة للترقية"
 else
 a="Upgrading Start"
@@ -30,31 +28,20 @@ b="found"
 c="file deleted"
 d="Mirrors saved successfully"
 d1="Something wrong , mirrors not saved"
-m1="You should enter the nomber of mirros"
-m2="Script usage : sh reflector.sh n , n= number of mirrors"
-m3="try again later"
 m4="No UPGREADE NEEDED"
 fi
 }
 #excute the localization function
 locale_function
-:'The new command enable the user choosing the nomber of mirrors
+#The new command
+: 'The new command enable the user choosing the nomber of mirrors
  Also useing HTTPS & HTTP only
  If you need rsync delete "--protocol https --protocol http"
  CHEERS
 '
 #if the number of mirrors is empty
-if [ -z "$1" ] 
- then
-#print notification and exit
-echo "$m1"
-sleep 1
-echo "$m2"
-echo "$m3"
-sleep 1
-exit
-fi
- sudo reflector --verbose --latest $1 --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
+mrr=${1:-40}
+sudo reflector --verbose --latest "$mrr" --protocol https --protocol http --sort rate --save /etc/pacman.d/mirrorlist
  if [ $? -eq 0 ]
  then
   echo "  "
