@@ -38,6 +38,16 @@
 
 #20-2-2021 script improved
 
+#the default nomber of mirror set to be 40 if you forget to put it within the command
+
+#if you want mor than 40 mirror 
+
+#enter the following command in the terminal
+
+#.reflector.sh 200 
+
+# or more
+
 
 
 
