@@ -3,9 +3,10 @@
 <<ABOUTME
  reflector.sh is a script to help you update mirrorlist
  written by:Mohammed Alhoussainy
- upgrade your system
+ 2021
 ABOUTME
 export m1 m2 m3 m4
+#upgrade your system
 arch_upgrade()
 {
 sudo pacman -Syu
