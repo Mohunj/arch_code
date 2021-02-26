@@ -7,6 +7,7 @@
 ABOUTME
 export m1 m2 m3 m4
 #upgrade your system
+PS1="Reflecting : "
 arch_upgrade()
 {
 sudo pacman -Syu
@@ -47,7 +48,7 @@ sudo reflector --verbose --latest "$mrr" --protocol https --protocol http --sort
  if [ $? -eq 0 ]
  then
   echo "  "
-  echo "$d"
+  echo -e "\e[35m $d \e[0m"
   echo "  "
     FILE=/var/lib/pacman/db.lck
     #check if file exist
@@ -55,7 +56,7 @@ if test -f "$FILE"; then
     echo -e "\e[40;38;5;82m $b \e[30;48;5;82m $FILE \e[0m"
     # File will be removed
     sudo rm "$FILE"
-    echo "$FILE $c"
+    echo -e"\e[31m $FILE $c \e[0m"
     #upgrade the system
     arch_upgrade
     else
