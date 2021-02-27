@@ -7,7 +7,7 @@
 ABOUTME
 export m1 m2 m3 m4
 #upgrade your system
-PS1="Reflecting : "
+#PS1="Reflecting : "
 arch_upgrade()
 {
 sudo pacman -Syu
@@ -61,7 +61,8 @@ if test -f "$FILE"; then
     arch_upgrade
     else
     echo -e "\033[31m \e[5m $a \e[0m"
-    #echo "بدء الترقية......."
+    echo "   "
+    echo "    "
     arch_upgrade
 fi
   else
